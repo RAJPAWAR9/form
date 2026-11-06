@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<script src="boot.js"></script>
+
+<meta name="color-scheme" content="dark light">
+<meta name="format-detection" content="telephone=no">
+<link rel="preconnect" href="https://i.ytimg.com" crossorigin>
+<link rel="dns-prefetch" href="https://itunes.apple.com">
+<link rel="dns-prefetch" href="https://lrclib.net">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0f">
+
+
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Booster%20OS%22%2C%22short_name%22%3A%22Booster%22%2C%22display%22%3A%22standalone%22%2C%22start_url%22%3A%22.%22%2C%22background_color%22%3A%22%230a0a0f%22%2C%22theme_color%22%3A%22%230a0a0f%22%7D">
+<meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="author" content="Raj Pawar">
+
+<title>Booster OS — Smart Audio • Smart Radio | Design by Raj Pawar</title>
+<meta name="description" content="Booster OS — cinematic music streaming with smart unique-song autoplay recommendations. Design by Raj Pawar.">
+<link rel="stylesheet" href="style.css">
+
+
+
+
+
+
+
+
+
+</head>
+<body data-theme="dark">
+
+<div id="ambient">
+  <div class="amb-layer" id="amb-a"></div>
+  <div class="amb-layer" id="amb-b"></div>
+  <div class="amb-tint"></div>
+  <div class="amb-noise"></div>
+</div>
+
+<div id="app">
+  <nav id="sidebar" class="glass-1">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 18V5l11-2v13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="16" r="3" stroke="currentColor" stroke-width="2"/></svg>
+      </div>
+      <div class="brand-text">Booster OS<small>Music, elevated</small><small class="bos-credit" style="text-transform:none;letter-spacing:.04em;margin-top:2px;">Design by <b>Raj Pawar</b></small></div>
+    </div>
+    <div data-nav="home" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span class="nlabel">Home</span></div>
+    <div data-nav="search" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><span class="nlabel">Search</span></div>
+    <div data-nav="charts" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg><span class="nlabel">Top Charts</span></div>
+    <div data-nav="toplists" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h10"/><circle cx="19" cy="18" r="2"/></svg><span class="nlabel">Top Playlists</span></div>
+    <div class="nav-group-label">Browse</div>
+    <div data-nav="lib-songs" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span class="nlabel">Songs</span></div>
+    <div data-nav="lib-albums" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/></svg><span class="nlabel">Albums</span></div>
+    <div data-nav="lib-artists" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg><span class="nlabel">Artists</span></div>
+    <div data-nav="lib-playlists" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h10"/><circle cx="19" cy="18" r="2"/></svg><span class="nlabel">Playlists</span></div>
+    <div class="nav-group-label">Your Library</div>
+    <div data-nav="favorites" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg><span class="nlabel">Favorites</span></div>
+    <div data-nav="recent" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span class="nlabel">Recently Played</span></div>
+    <div data-nav="queue" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h13M3 12h13M3 18h9"/><path d="M18 15l3 3-3 3"/></svg><span class="nlabel">Queue</span></div>
+    <div class="nav-spacer"></div>
+    <div data-nav="settings" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9c.29-.6.24-1.31-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06c.51.51 1.22.62 1.82.33.5-.24.9-.68 1-1.24V3a2 2 0 1 1 4 0v.09c.1.56.5 1 1 1.24.6.29 1.31.18 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06c-.51.51-.62 1.22-.33 1.82.24.5.68.9 1.24 1H21a2 2 0 1 1 0 4h-.09c-.56.1-1 .5-1.24 1z"/></svg><span class="nlabel">Settings</span></div>
+    <div class="bos-credit bos-credit-side">Design by <b>Raj Pawar</b></div>
+    <button class="collapse-btn" id="collapse-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg><span class="nlabel">Collapse</span></button>
+  </nav>
+
+  <div id="main">
+    <div id="topbar">
+      <div class="topbar-title mobile-only">
+        <div class="brand-mark" style="width:30px;height:30px;border-radius:9px;"><svg viewBox="0 0 24 24" fill="none" style="width:15px;height:15px;"><path d="M9 18V5l11-2v13" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" stroke="#fff" stroke-width="2"/><circle cx="18" cy="16" r="3" stroke="#fff" stroke-width="2"/></svg></div>
+        <span style="font-weight:800;font-size:15px;color:var(--text-1);line-height:1.1;">Booster OS<span class="bos-credit bos-credit-top">Design by <b>Raj Pawar</b></span></span>
+      </div>
+      <div class="topbar-title desktop-only" id="page-title">Home</div>
+      <div class="flex-c" style="gap:8px;">
+        <button class="icon-btn" id="theme-quick-toggle" aria-label="Toggle theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="view-scroll">
+      <div class="view active" id="view-home"></div>
+      <div class="view" id="view-search"></div>
+      <div class="view" id="view-library"></div>
+      <div class="view" id="view-favorites"></div>
+      <div class="view" id="view-recent"></div>
+      <div class="view" id="view-album"></div>
+      <div class="view" id="view-artist"></div>
+      <div class="view" id="view-playlist"></div>
+      <div class="view" id="view-settings"></div>
+      <div class="view" id="view-charts"></div>
+      <div class="view" id="view-toplists"></div>
+    </div>
+  </div>
+</div>
+
+<div id="mini-player" class="glass-3">
+  <div class="mini-art" id="mini-art-wrap"><img id="mini-art" src="" alt="" loading="lazy"></div>
+  <div class="mini-info" id="mini-info">
+    <div class="mini-title" id="mini-title">No track playing</div>
+    <button class="mini-artist" id="mini-artist" data-action="open-current-artist" type="button">Search to start listening</button>
+    <button class="mini-album" id="mini-album" data-action="open-current-album" type="button"></button>
+  </div>
+  <div class="mini-controls">
+    <button class="ctrl-btn heart-btn desktop-only" id="mini-heart" aria-label="Favorite"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+    <button class="ctrl-btn desktop-only" id="mini-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zM20 6L10 12l10 6z"/></svg></button>
+    <button class="play-btn" id="mini-play" aria-label="Play"><svg viewBox="0 0 24 24" fill="currentColor" id="mini-play-icon"><path d="M8 5v14l11-7z"/></svg></button>
+    <button class="ctrl-btn desktop-only" id="mini-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zM4 6l10 6L4 18z"/></svg></button>
+    <button class="ctrl-btn desktop-only" id="mini-queue" aria-label="Queue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h13M3 12h13M3 18h9"/><path d="M18 15l3 3-3 3"/></svg></button>
+  </div>
+  <div class="mini-progress"><div class="mini-progress-fill" id="mini-progress-fill"></div></div>
+</div>
+
+<div id="full-player">
+  <div class="fp-bg" id="fp-bg"></div>
+  <div class="fp-grad" id="fp-grad" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="fp-scrim"></div>
+  <div class="fp-inner">
+    <div class="fp-head">
+      <button class="icon-btn" id="fp-close" style="color:#fff;" aria-label="Minimize player"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+      <div class="fp-head-title">Now Playing</div>
+      <button class="icon-btn" id="fp-queue-open" style="color:#fff;" aria-label="Open queue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h13M3 12h13M3 18h9"/><path d="M18 15l3 3-3 3"/></svg></button>
+    </div>
+    <div class="fp-body">
+      <div class="fp-art-wrap"><img id="fp-art" src="" alt=""></div>
+      <div class="fp-meta">
+        <div class="fp-meta-text">
+          <div class="fp-title" id="fp-title">—</div>
+          <button class="fp-artist" id="fp-artist" data-action="open-current-artist" type="button">—</button>
+          <button class="fp-album" id="fp-album" data-action="open-current-album" type="button"></button>
+        </div>
+        <button class="ctrl-btn heart-btn" id="fp-heart" style="color:#fff;" aria-label="Favorite"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+      </div>
+      <div class="fp-progress-wrap">
+        <div class="seek-track" id="seek-track"><div class="seek-fill" id="seek-fill"></div><div class="seek-handle" id="seek-handle"></div></div>
+        <div class="seek-time"><span id="time-current">0:00</span><span id="time-total">0:00</span></div>
+      </div>
+      <div class="fp-controls">
+        <button class="ctrl-btn" id="fp-shuffle" aria-label="Shuffle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20L21 3M4 4l5 5M21 21l-5-5M15 15l6 6"/></svg></button>
+        <button class="ctrl-btn" id="fp-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zM20 6L10 12l10 6z"/></svg></button>
+        <button class="play-btn lg" id="fp-play" aria-label="Play"><svg viewBox="0 0 24 24" fill="currentColor" id="fp-play-icon"><path d="M8 5v14l11-7z"/></svg></button>
+        <button class="ctrl-btn" id="fp-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zM4 6l10 6L4 18z"/></svg></button>
+        <button class="ctrl-btn" id="fp-repeat" aria-label="Repeat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></button>
+      </div>
+      <div class="fp-side-actions">
+        <button class="ctrl-btn" id="fp-lyrics-open" aria-label="Lyrics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h9"/></svg></button>
+        <div class="flex-c" style="gap:8px;flex:1;justify-content:center;max-width:150px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="M11 5L6 9H2v6h4l5 4V5z"/></svg>
+          <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.8" style="flex:1;">
+        </div>
+        <button class="ctrl-btn" id="fp-queue-btn2" aria-label="Queue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h13M3 12h13M3 18h9"/><path d="M18 15l3 3-3 3"/></svg></button>
+      </div>
+      <div class="bos-credit bos-credit-fp">Design by <b>Raj Pawar</b></div>
+    </div>
+  </div>
+
+  <div id="lyrics-view">
+    <div class="ly-hd" id="ly-hd">
+      <img class="ly-thumb" id="ly-thumb" alt="">
+      <div class="ly-meta" id="ly-meta"><div class="ly-title" id="ly-title"></div><div class="ly-artist" id="ly-artist"></div></div>
+      <button class="ly-btn" id="ly-heart" type="button" aria-label="Favorite"></button>
+      <button class="ly-btn" id="ly-back" type="button" aria-label="Back to player"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="lyrics-head">
+      <button class="icon-btn" id="lyrics-close" style="color:inherit;" aria-label="Close lyrics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+      <div class="fp-head-title" style="color:inherit;">Lyrics</div>
+      <div style="width:38px;"></div>
+    </div>
+    <div class="lyrics-scroll" id="lyrics-scroll"></div>
+    <div class="bos-credit bos-credit-ly">Design by <b>Raj Pawar</b></div>
+  </div>
+</div>
+
+<div id="queue-overlay"></div>
+<div id="queue-panel" class="glass-3">
+  <div class="queue-head">
+    <h3>Queue</h3>
+    <div class="flex-c" style="gap:6px;">
+      <button class="icon-btn" id="queue-clear" aria-label="Clear queue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m2 0v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6h12z"/></svg></button>
+      <button class="icon-btn" id="queue-close" aria-label="Close queue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    </div>
+  </div>
+  <div class="queue-list" id="queue-list"></div>
+  <div class="bos-credit bos-credit-q">Design by <b>Raj Pawar</b></div>
+</div>
+
+<nav id="bottom-nav" class="glass-3">
+  <div class="bn-item" data-nav="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Home</span></div>
+  <div class="bn-item" data-nav="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><span>Search</span></div>
+  <div class="bn-item" data-nav="charts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg><span>Charts</span></div>
+  <div class="bn-item" data-nav="favorites"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>Favorites</span></div>
+  <div class="bn-item" data-nav="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9c.29-.6.24-1.31-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06c.51.51 1.22.62 1.82.33.5-.24.9-.68 1-1.24V3a2 2 0 1 1 4 0v.09c.1.56.5 1 1 1.24.6.29 1.31.18 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06c-.51.51-.62 1.22-.33 1.82.24.5.68.9 1.24 1H21a2 2 0 1 1 0 4h-.09c-.56.1-1 .5-1.24 1z"/></svg><span>Settings</span></div>
+</nav>
+
+<div id="toast-container"></div>
+
+<div class="modal-backdrop" id="modal-backdrop"></div>
+<div class="modal-box glass-3" id="modal-box">
+  <div class="modal-title" id="modal-title">Are you sure?</div>
+  <div class="modal-desc" id="modal-desc">This action cannot be undone.</div>
+  <div class="modal-actions">
+    <button class="btn btn-ghost" id="modal-cancel">Cancel</button>
+    <button class="btn btn-primary btn-danger" id="modal-confirm" style="background:var(--danger);box-shadow:none;">Confirm</button>
+  </div>
+</div>
+
+<audio id="audio-el" preload="auto" crossorigin="anonymous" playsinline></audio>
+<audio id="audio-el-2" preload="auto" crossorigin="anonymous" playsinline></audio>
+
+<script defer src="lyrics.js"></script>
+<script src="app.js"></script>
+
+<div id="bos-fab" aria-label="Booster quick actions">⚡</div>
+<div id="bos-pop" class="glass-3" role="dialog" aria-label="Booster quick actions">
+  <div class="bos-pop-head">
+    <div class="bos-pop-title">⚡ Booster Quick Actions</div>
+    <div class="bos-pop-sub">Smart controls, without the clutter</div>
+  </div>
+
+  <div class="bos-pop-h"><span>🧠</span> Smart Music</div>
+  <div class="bos-pop-grid">
+    <button class="bos-btn" id="bos-smart-open">
+      <span class="bos-btn-icon">🧠</span><span class="bos-btn-copy"><strong>Smart Suggestions</strong><small>Fresh picks for you</small></span>
+    </button>
+    <button class="bos-btn" id="bos-mood">
+      <span class="bos-btn-icon">🎭</span><span class="bos-btn-copy"><strong>Mood Playlist</strong><small>Play by your mood</small></span>
+    </button>
+    <button class="bos-btn" id="bos-languages">
+      <span class="bos-btn-icon">🌐</span><span class="bos-btn-copy"><strong>Languages</strong><small>Viral & trending by language</small></span>
+    </button>
+  </div>
+
+
+  <div class="bos-pop-h"><span>✨</span> Experience</div>
+  <div class="bos-pop-grid">
+    <button class="bos-btn" id="bos-fullscreen">
+      <span class="bos-btn-icon">⛶</span><span class="bos-btn-copy"><strong>Fullscreen Player</strong><small>Focus on the music</small></span>
+    </button>
+    <button class="bos-btn" id="bos-fx">
+      <span class="bos-btn-icon">🎛</span><span class="bos-btn-copy"><strong>Audio FX</strong><small>Voice Cut + Bass Boost</small></span>
+    </button>
+    <button class="bos-btn" id="bos-health">
+      <span class="bos-btn-icon">🛠</span><span class="bos-btn-copy"><strong>System Health</strong><small>Check playback & queue</small></span>
+    </button>
+  </div>
+</div>
+<input type="file" id="bos-import-file" accept="application/json" style="display:none">
+<div id="bos-language-modal" class="bos-mood-modal" aria-hidden="true" role="dialog" aria-label="Languages">
+  <div class="bos-language-sheet glass-3">
+    <div class="bos-mood-head"><div><div class="bos-pop-title">🌐 Languages</div><div class="bos-pop-sub">Select one or multiple languages for fresh viral & trending songs</div></div><button class="bos-language-close bos-mood-close" aria-label="Close">×</button></div>
+    <div class="bos-language-note">🔥 Searches refresh every time you play. Multiple languages are mixed into one queue with duplicate-family and artist-repeat protection.</div>
+    <div id="bos-language-grid" class="bos-language-grid"></div>
+    <div class="bos-language-footer"><span id="bos-language-count">Select languages</span><button id="bos-language-play" class="bos-language-play" disabled>▶ Play Viral Mix</button></div>
+  </div>
+</div>
+<div id="bos-mood-modal" class="bos-mood-modal" aria-hidden="true" role="dialog" aria-label="Smart moods">
+  <div class="bos-mood-sheet glass-3">
+    <div class="bos-mood-head"><div><div class="bos-pop-title">🧠 Smart Moods</div><div class="bos-pop-sub">Fresh Indian mixes — rebuilt every time you play</div></div><button class="bos-mood-close" aria-label="Close">×</button></div>
+    <div class="bos-mood-grid">
+      <button data-bos-mood="happy" data-label="Happy Mix">😄<span>Happy</span><small>Feel good</small></button>
+      <button data-bos-mood="sad" data-label="Sad Mix">💔<span>Sad</span><small>Emotional</small></button>
+      <button data-bos-mood="romantic" data-label="Romantic Mix">❤️<span>Romantic</span><small>Love vibes</small></button>
+      <button data-bos-mood="energy" data-label="Energy Mix">🔥<span>Energy</span><small>High power</small></button>
+      <button data-bos-mood="party" data-label="Party Mix">🎉<span>Party</span><small>Dance now</small></button>
+      <button data-bos-mood="chill" data-label="Chill Mix">😌<span>Chill</span><small>Relax</small></button>
+      <button data-bos-mood="latenight" data-label="Late Night Mix">🌙<span>Late Night</span><small>After dark</small></button>
+      <button data-bos-mood="roadtrip" data-label="Road Trip Mix">🚗<span>Road Trip</span><small>On the go</small></button>
+      <button data-bos-mood="rap" data-label="Indian Rap Mix">🎤<span>Rap</span><small>Hip-hop</small></button>
+      <button data-bos-mood="motivation" data-label="Motivation Mix">💪<span>Motivation</span><small>Push harder</small></button>
+      <button data-bos-mood="rainy" data-label="Rainy Mix">🌧️<span>Rainy</span><small>Monsoon</small></button>
+      <button data-bos-mood="focus" data-label="Focus Mix">🎯<span>Focus</span><small>Stay locked</small></button>
+      <button class="bos-mood-god" data-bos-mood="god" data-label="God Songs Mix">🕉️<span>God Songs</span><small>Bhakti &amp; Spiritual</small></button>
+      <button class="bos-mood-surprise" data-bos-mood="surprise" data-label="Surprise Mix">🎲<span>Surprise Me</span><small>Fresh random vibe</small></button>
+    </div>
+  </div>
+</div>
+<div id="bos-cmdk"><div class="bos-cmdk-box"><input id="bos-cmdk-input" placeholder="Type a command… (play, next, lyrics, home, shuffle…)" autocomplete="off"><div id="bos-cmdk-list"></div></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="bos-v9-fx-panel" class="bos-v9-fx-panel" role="dialog" aria-label="Audio FX">
+  <div class="bos-v9-fx-head">
+    <div><div class="bos-v9-fx-title">🎛 Audio FX</div><div class="bos-v9-fx-sub">Voice Cut · Only Voice · Bass Boost</div></div>
+    <button id="bos-v9-fx-close" class="bos-v9-fx-close" aria-label="Close">✕</button>
+  </div>
+  <div class="bos-v9-fx-actions">
+    <button id="bos-v9-voice-cut">🎤 Voice Cut <span>OFF</span></button>
+    <button id="bos-v9-voice-only">🎙 Only Voice <span>OFF</span></button>
+    <button id="bos-v9-bass-toggle" class="wide">🔊 Bass Boost <span>OFF</span></button>
+    <button id="bos-v9-bass-vib" class="wide">📳 Bass Vibration <span>OFF</span></button>
+  </div>
+  <div id="bos-v9-fx-desc" class="bos-v9-fx-desc">Original sound.</div>
+  <div class="bos-v9-fx-row">
+    <div class="bos-v9-fx-line"><label>Bass Boost</label><span id="bos-v9-bass-value" class="bos-v9-fx-value">0 dB</span></div>
+    <input id="bos-v9-bass-range" class="bos-v9-fx-range" type="range" min="0" max="12" step="1" value="0">
+  </div>
+  <details id="bos-v9-keys" class="bos-v9-keys">
+    <summary>⌨ Keyboard shortcuts</summary>
+    <div class="bos-v9-keys-grid">
+      <span><kbd>V</kbd> Voice Cut</span><span><kbd>O</kbd> Only Voice</span>
+      <span><kbd>B</kbd> Bass on/off</span><span><kbd>[</kbd> <kbd>]</kbd> Bass −/+ 1 dB</span>
+      <span><kbd>F</kbd> Audio FX panel</span><span><kbd>L</kbd> Lyrics open/close</span>
+      <span><kbd>←</kbd> <kbd>→</kbd> Seek 5s</span><span><kbd>Space</kbd> Play / pause</span>
+      <span><kbd>Shift</kbd>+<kbd>←</kbd><kbd>→</kbd> Prev / next</span><span><kbd>?</kbd> This list</span>
+    </div>
+  </details>
+  <div class="bos-v9-fx-note">Voice effects work by stereo maths, so results depend on how the song was mixed. Bass Boost goes up to +12 dB.</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<button id="yt-open" type="button">YouTube</button>
+<div id="yt-ov" role="dialog" aria-label="Search and play">
+  <div class="bar">
+    <input id="yt-q" type="search" placeholder="Search a song" aria-label="Search">
+    <button class="go" id="yt-go" type="button">Search</button>
+    <button id="yt-x" type="button" aria-label="Close">Close</button>
+  </div>
+  <div id="yt-msg" role="status"></div>
+  <div id="yt-stage"></div>
+  <div id="yt-list"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ===== BoosterOS: live song-colour gradient + smooth page fade (light, 4GB-friendly) ===== -->
+
+
+
+
+
+
+
+<script src="patches.js"></script>
+</body>
+</html>
